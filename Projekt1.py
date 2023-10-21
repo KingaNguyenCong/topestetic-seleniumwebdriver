@@ -3,13 +3,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 #from selenium.webdriver.support import expected_conditions
 
-#import time
+import time
 
 driver = webdriver.Chrome()
 driver.get('https://www.topestetic.pl/')
+driver.maximize_window()
 
-
-
+time.sleep(5)
 
 search_field = driver.find_element(By.NAME,'q')
 search_field.clear()
