@@ -101,14 +101,12 @@ driver.execute_script("window.scrollBy(0, 1000);")
 
 #Akceptacja regulaminu
 
+time.sleep(5)
 
-accept_regulations_field = driver.find_element(By.NAME, 'regulamin')
-
-time.sleep(3)
+accept_regulations_field = driver.find_element(By.CSS_SELECTOR, 'label[for="regulamin"]')
 
 accept_regulations_field.click()
 
-time.sleep(3)
 
 
 print("Zaakceptowano regulamin.")
