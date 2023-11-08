@@ -75,8 +75,54 @@ buy_as_guest_button.click()
 
 print("Zakupy bez rejestracji.")
 
+# Znajdź pola formularza i wprowadź dane
+
+email_field = driver.find_element(By.NAME, 'email')
+email_field.send_keys("kingagalicaa@gmail.com")
+
+name_field = driver.find_element(By.NAME, 'adresy[0][imie]')
+name_field.send_keys("Kinga")
+
+username_field = driver.find_element(By.NAME, 'adresy[0][nazwisko]')
+username_field.send_keys("Nguyen Cong")
+
+street_field = driver.find_element(By.NAME, 'adresy[0][ulica]')
+street_field.send_keys("Tysiąclecia")
+
+building_number_field = driver.find_element(By.NAME, 'adresy[0][ulicanr]')
+building_number_field.send_keys("16")
+
+postal_code_field = driver.find_element(By.NAME, 'adresy[0][kod]')
+postal_code_field.send_keys("40-873")
+
+city_field = driver.find_element(By.NAME, 'adresy[0][miasto]')
+city_field.send_keys("Katowice")
+
+phone_number_field = driver.find_element(By.NAME, 'adresy[0][telefon]')
+phone_number_field.send_keys("500091868")
+
+time.sleep(4)
+
+print("Wpisano dane.")
+
+# Przewiń stronę o 1000 pikseli w dół
+driver.execute_script("window.scrollBy(0, 1000);")
+
+time.sleep(2)
+
+#Akceptacja regulaminu
 
 
+accept_regulations_field = driver.find_element(By.NAME, 'regulamin')
+
+time.sleep(5)
+
+accept_regulations_field.click()
+
+time.sleep(5)
+
+
+print("Zaakceptowano regulamin.")
 
 
 driver.quit()
