@@ -14,6 +14,8 @@ driver.maximize_window()
 
 time.sleep(5)
 
+#Test okna wyszukiwarki
+
 search_field = driver.find_element(By.NAME,'q')
 search_field.clear()
 #driver.find_element(By.NAME,'q').submit()
@@ -32,17 +34,17 @@ else:
     print("Brak wyników dla frazy 'Serum'.")
 
 
+#Test dodawania do koszyka
 
-
-
-
-first_product_add_to_card = driver.find_elements(By.CLASS_NAME, 'dodaj-koszyk')
+add_to_card = driver.find_elements(By.CLASS_NAME, 'dodaj-koszyk')
 
 time.sleep(5)
 
-first_product_add_to_card[1].click()
+add_to_card[1].click()
 
 time.sleep(5)
+
+print("Produkt został dodany do koszyka.")
 
 
 #do_koszyka_element = WebDriverWait(driver, 10).until(
@@ -54,6 +56,26 @@ checkout_button = driver.find_element(By.CSS_SELECTOR, '.przejdz-koszyk.przejdz-
 #mogla byc by.class ale jest spacja w nazwie klasy i lepiej css_selector i wtedy te kropki
 
 checkout_button.click()
+
+
+#Test kupna produktu bez rejestracji
+
+# Przewiń stronę o 1000 pikseli w dół
+driver.execute_script("window.scrollBy(0, 1000);")
+
+time.sleep(2)
+
+buy_product_button = driver.find_element(By.CSS_SELECTOR, '.przejdz-koszyk.dodaj-duzy')
+
+buy_product_button.click()
+
+buy_as_guest_button = driver.find_element(By.CSS_SELECTOR, '.zwykly-button.szybkie-zakupy')
+
+buy_as_guest_button.click()
+
+print("Zakupy bez rejestracji.")
+
+
 
 
 
